@@ -1,2 +1,2 @@
 # LinuxAutoconfig
-Auto configuration and installation of application for Pop!_OS and Fedora
+Auto configuration and installation of applications for fresh Pop!_OS and Fedora installations.
