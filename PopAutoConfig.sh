@@ -3,16 +3,9 @@
 ## New folders to be used for .deb downloads and github repository plus any folder you need because you want to
 mkdir "/home/$USER/Git"
 
-DOWNLOAD_DIR="/home/$USER/Downloads"
-REPO_DIR="/home/$USER/Git"
-
 ## Remove apt locks if any
 sudo rm /var/lib/dpkg/lock-frontend
 sudo rm /var/cache/apt/archives/lock
-
-## External repositories
-sudo apt install git -y
-#git clone https://github.com/link.git ./Folder1/Folder2
 
 # "Apts"
 # You can install all the applications on a single apt command "sudo apt install app1 app2 app3 -y"
@@ -38,6 +31,7 @@ sudo apt install inkscape -y
 sudo apt install ruby -y
 
 ## Flatpaks
+
 flatpak install flathub com.obsproject.Studio -y
 flatpak install flathub com.discordapp.Discord -y
 flatpak install flathub net.runelite.RuneLite -y
@@ -62,6 +56,7 @@ flatpak install flathub com.getpostman.Postman -y
 flatpak install flathub io.atom.Atom -y
 flatpak install flathub com.google.AndroidStudio -y
 flatpak install flathub com.sublimemerge.App -y
+flatpak install flathub de.haeckerfelix.Fragments -y
 
 ## Install vscode
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
@@ -74,11 +69,27 @@ sudo apt install code
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt-get install nodejs
 
+## Install google-chrome
+wget -P /home/$USER/Downloads https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install /home/$USER/Downloads/google-chrome-stable_current_amd64.deb -y
+
 ## Change gdm login screen from pop_os theme to default gnome theme
 sudo update-alternatives --config gdm3-theme.gresource
 
-## Install zsh/ohmyzsh and powerline10k theme
-sudo apt install zsh
+## Install zsh/ohmyzsh/powerline10/fonts
+#zsh
+sudo apt install zsh -y
+#ohmyzsh
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+#powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+##dotfiles
+git clone https://github.com/KrauseKurt/dotfiles.git ~/Git/dotfiles
+
+##Fonts
+mv ~/Git/dotfiles/.fonts ~/
+fc-cache -f -v
 
 ## Post-install update and cleanup
 sudo apt update && sudo apt dist-upgrade -y
