@@ -46,7 +46,7 @@ flatpak install flathub com.github.debauchee.barrier -y
 flatpak install flathub com.anydesk.Anydesk -y
 flatpak install flathub org.audacityteam.Audacity -y
 flatpak install flathub org.gnome.meld -y
-flatpak install flathub com.basemark.BasemarkGPU -y
+#flatpak install flathub com.basemark.BasemarkGPU -y
 flatpak install flathub com.jetbrains.Rider -y
 flatpak install flathub com.jetbrains.DataGrip -y
 flatpak install flathub com.jetbrains.WebStorm -y
@@ -57,6 +57,7 @@ flatpak install flathub io.atom.Atom -y
 flatpak install flathub com.google.AndroidStudio -y
 flatpak install flathub com.sublimemerge.App -y
 flatpak install flathub de.haeckerfelix.Fragments -y
+flatpak install flathub org.gabmus.hydrapaper -y
 
 ## Install vscode
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
